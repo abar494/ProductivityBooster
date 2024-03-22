@@ -1,5 +1,6 @@
 from PIL import ImageGrab, Image
 import subprocess
+import time
 
 def get_top_menu_bar_image(topBarHeight):
     # Get screen resolution
@@ -13,6 +14,7 @@ def get_top_menu_bar_image(topBarHeight):
     return screen
 
 
+time.sleep(5)
 topImage = get_top_menu_bar_image(32)
 fullImage = ImageGrab.grab()
 

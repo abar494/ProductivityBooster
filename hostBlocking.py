@@ -47,9 +47,7 @@ def unblock_website(website):
     split_hosts_head_and_tail()
     remove_from_hosts(website)
 
-unblock_website('messenger') 
-block_website('youtube')
-unblock_website('coolmathgames')
-block_website('facebook')
+
+unblock_website('youtube') 
 
 print(subprocess.check_output('cat /etc/hosts', shell=True).decode('utf-8'))

@@ -15,7 +15,7 @@ import re
 
 import pytesseract
 
-heya = pytesseract.image_to_string('tester.png', timeout=3)
+heya = pytesseract.image_to_string('fullImage.png', timeout=3)
 
 heya = heya.strip()
 # .split(" ", "\n")
@@ -27,10 +27,10 @@ heya = re.split(' |\n', heya)
 #check if heya has a word that contains www
 a = True
 for word in heya:
-    if "www" in word:
+    if "com" in word:
         print("AWESOME")
         print(word)
         a = False
         # break
 if a:
-    print("No www in this word")
+    print("No com in this word")
