@@ -21,8 +21,8 @@ def split_hosts_head_and_tail():
 def append_to_hosts(webname):
     lines = subprocess.check_output('cat /tmp/etc_hosts_tail.tmp | grep ' + webname + ' | cat', shell=True)
     if not len(lines):
-        lines = subprocess.check_output('echo ' + '0.0.0.1 ' + webname + '.com >> /tmp/etc_hosts_tail.tmp', shell=True)
-        lines = subprocess.check_output('echo ' + '0.0.0.1 www.' + webname + '.com >> /tmp/etc_hosts_tail.tmp', shell=True)
+        lines = subprocess.check_output('echo ' + '0.0.0.0 ' + webname + '.com >> /tmp/etc_hosts_tail.tmp', shell=True)
+        lines = subprocess.check_output('echo ' + '0.0.0.0 www.' + webname + '.com >> /tmp/etc_hosts_tail.tmp', shell=True)
     #join head and tail
     lines = subprocess.check_output('cat /tmp/etc_hosts_head.tmp /tmp/etc_hosts_tail.tmp > /tmp/etc_hosts.tmp', shell=True)
     lines = subprocess.check_output('rm /tmp/etc_hosts_head.tmp /tmp/etc_hosts_tail.tmp', shell=True)
@@ -48,6 +48,9 @@ def unblock_website(website):
     remove_from_hosts(website)
 
 
-unblock_website('youtube') 
+unblock_website('youtube')
+unblock_website('facebook')
+unblock_website('twitter')
+
 
 print(subprocess.check_output('cat /etc/hosts', shell=True).decode('utf-8'))

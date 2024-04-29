@@ -3,7 +3,7 @@ Pillow
 pyobjc
 requests
 pytesseract
-
+playsound
 
 
 
